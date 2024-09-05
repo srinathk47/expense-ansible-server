@@ -1,7 +1,7 @@
-name: create ec2 and r53 records
-hosts: local
-connection: local
-vars:
+- name: create ec2 and r53 records
+  hosts: local
+  connection: local
+  vars:
   subnet_id: subnet-0e4270b178df6af55  # replace with subnet id
   sg: "sg-0940132bb40174eb4"
   ami_id: "ami-09c813fb71547fc4f"
@@ -9,7 +9,7 @@ vars:
     - mysql
     - backend
     - frontend
-tasks:
+  tasks:
   - name: create ec2 instances
     amazon.aws.ec2_instance:
       name: "{{ item }}"
